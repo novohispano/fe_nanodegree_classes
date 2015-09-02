@@ -1,0 +1,42 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1086px;
+}
+
+.app {
+  display: flex;
+  display: -webkit-flex;
+  margin-top: 50px;
+}
+
+.title {
+  background-color: #33bebe;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  letter-spacing: 2px;
+  max-width: 1086px;
+  padding: 40px 10px 5px 20px;
+}
+
+.image {
+  max-width: 460px;
+}
+
+.description {
+  color: #7c8b88;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  max-width: 705px;
+  padding-left: 30px;
+}
