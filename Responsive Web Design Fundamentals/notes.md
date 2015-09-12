@@ -195,3 +195,102 @@ nav a, button {
     <div class="box orange"></div>
   </div>
 ```
+
+### Layout Shifter
+
+* It's the most responsive layout.
+* It's a bit more complex and it depends on flexboxes.
+
+```css
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 500px) {
+    .dark-blue {
+      width: 50%;
+    }
+    #container-2 {
+      width: 50%;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .dark-blue {
+      width: 25%;
+      order: 1;
+    }
+    #container-2 {
+      width: 50%;
+    }
+    .red {
+      width: 25%;
+      order: -1;
+    }
+  }
+```
+
+```html
+  <div class="container">
+    <div class="box dark-blue"></div>
+    <div class="container" id="container-2">
+      <div class="box ligh-blue"></div>
+      <div class="box green"></div>
+    </div>
+    <div class="box red"></div>
+  </div>
+```
+
+### Off Canvas
+
+* It hides the secondary content, such as a navigation bar, when the screen is small.
+* The content sometimes is shown when a user taps on a hamburguer menu, for example.
+
+```css
+  html, body, main {
+    height: 100%;
+    width: 100%;
+  }
+
+  nav {
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    transform: translate(-300px, 0);
+    transition: transform 0.3s ease;
+  }
+
+  nav.open {
+    transform: translate(0, 0);
+  }
+
+  @media screen and (min-width: 600px) {
+    nav {
+      position: relative;
+      transform: translate(0, 0);
+    }
+
+    body {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    
+    main {
+      width: auto;
+      flex-grow: 1;
+    }
+  }
+```
+
+```html
+  <nav id="drawer" class="dark-blue"></nav>
+
+  <main class="light-blue">
+  </main>
+```
