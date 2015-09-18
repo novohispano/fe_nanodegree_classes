@@ -8,7 +8,8 @@
 
   body {
     font-family: Roboto;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.20em;
     color: #424242;
   }
 
@@ -443,14 +444,16 @@
   }
 
   .news {
-    font-size: 1.2em;
+    font-size: 18px;
+    line-height: 1.25em;
   }
 
   .snippet__thumbnail {
-    width: 150px;
+    width: 200px;
   }
   .snippet {
     margin: 30px 0px;
+    min-height: 125px;
   }
 }
 

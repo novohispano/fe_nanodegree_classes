@@ -280,7 +280,7 @@ nav a, button {
       display: flex;
       flex-flow: row nowrap;
     }
-    
+
     main {
       width: auto;
       flex-grow: 1;
@@ -294,3 +294,124 @@ nav a, button {
   <main class="light-blue">
   </main>
 ```
+
+### Optimizations
+
+* It is important to change the resolution of images as well when doing a responsive website.
+* Tables could be hard to adapt in a responsive design causing overflow. There are three techniques to fix this:
+  * Hidden columns
+  * No more tables
+  * Contained tables
+
+### Hidden Columns
+
+* This technique hides columns based on their importance.
+* However the problem is that you are hiding real data from the users.
+
+```html
+<tr>
+  <td>
+    <span class="shortName">TOR</span>
+    <span class="longName">Toronto Blue Jays</span>
+  </td>
+  <td class="inning">0</td>
+  <td class="inning">0</td>
+  <td class="inning">0</td>
+  <td class="inning">4</td>
+  <td class="inning">0</td>
+  <td class="inning">1</td>
+  <td class="inning">0</td>
+  <td class="inning">0</td>
+  <td class="final">5</td>
+</tr>
+```
+
+```css
+  body {
+    margin: 1em;
+  }
+
+  .longName {
+    display: none;
+  }
+
+  .inning {
+    display: none;
+  }
+```
+
+### No More Table (Collapsed Table)
+
+* This makes the table behave like a list when the screen size is reduced.
+
+```html
+<tr>
+  <thead></thead>
+  <tbody>
+    <tr>
+      <td data-th="team">0</td>
+      <td data-th="1rd">0</td>
+      <td data-th="2rd">0</td>
+      <td data-th="3rd">0</td>
+      <td data-th="4th">0</td>
+      <td data-th="5th">0</td>
+      <td data-th="6th">4</td>
+      <td data-th="7th">0</td>
+      <td data-th="8th">1</td>
+      <td data-th="9th">0</td>
+      <td data-th="final">5</td>
+    </tr>
+  </tbody>
+</tr>
+```
+
+```css
+  @media screen and (max-width: 500px) {
+    table, head, tbody, th, td, tr {
+      display: block
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    td {
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td:before {
+      position: absolute;
+      left: 6px;
+      content: attr(data-th);
+      font-weight: bold;
+    }
+  }
+```
+
+### Contained Tables
+
+* Ths wraps the table in a div.
+* This is the easiest.
+
+```css
+  div.contained-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+```
+
+### Fonts
+
+* `measure` of text lines are very important for readibility.
+* Research shows that lines should be between 45-90 cpl (characters per line).
+* The ideal line measure is around 65 cpl for the web.
+* It is important to consider this factor when choosing breakpoints.
+* Base fonts should be at least 16 px and 1.2em line height (or 18px and 1.25em depending on the situation).
+
+### Minor breakpoints
+
+* These are necessary to adjust the page according to the content.
+* Things like padding and font sizes can change with breakpoints.
