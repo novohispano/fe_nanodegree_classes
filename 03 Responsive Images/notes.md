@@ -64,7 +64,7 @@
 * With background-size set to `cover`, the image covers all it's width and hides part of its height. It's smallest dimension matches the container's smallest dimension.
 * With `contain`, the largest image dimension matches its container's largest dimensions.
 
-### Symbol characters
+### Symbol Characters
 
 * Instead of using pictures, try to see whether you can find a character that matches in a font.
 * Check http://unicode-table.com.
@@ -84,7 +84,80 @@
   }
 ```
 
-### Inlining images with SVG
+### Inlining Images with SVG
 
 * To reduce the number of file requests, you can embed the images in your html using `svg` or `data-uri`.
 * You can animate SVGs without taking much data.
+
+### sourceset
+
+* This is an image attribute that lets the browser make the best decision based on the dpi of the screen.
+* The `1x` and `2x` are the pixel density descriptor.
+
+```html
+  <img src="wallaby_1x.jpg" scrset="wallaby_1x.jpg 1x, wallaby_2x.jpg 2x" alt="Wallaby">
+```
+
+* You can get the information about your screen pixel density by using `window.devicePixelRatio`.
+* If the browser doesn't support `sourceset` it would load the default picture.
+* It is recommended that you use the `w` unit so that the browser can pick the best image for your site.
+
+```html
+  <img src="wallaby_small.jpg" scrset="wallaby_small.jpg 500w, wallaby_medium.jpg 1000w" alt="Wallaby">
+```
+
+### size
+
+* The size attribute tells the browser the size at which the image will be displayed.
+* The size attribute does not resize your image.
+* The sizes attribute should match the CSS so that the browser can easily find the image to render.
+
+```html
+  <img src="wallaby_small.jpg" scrset="wallaby_small.jpg 500w, wallaby_medium.jpg 1000w" sizes="(max-width: 250px) 100vw, 50vw" alt="Wallaby">
+```
+
+```css
+  @media screen and (max-width: 250px) {
+    img {
+      width: 100vw;
+    }
+  }
+```
+
+* `sizes` consists of comma separated `mediaQuery width` pairs. `sizes` tells the browser early in the load process that the image will be displayed at some width when the mediaQuery is hit.
+
+### Picture Element
+
+* The picture element allows you to declare sources and an img element within it. If the browser supports the first type of file, it will render, otherwise it will hit the next one.
+* If a browser doesn't support picture elements, then you can include an `img` element as a "fallback" option within the picture element.
+
+```html
+  <picture>
+    <source srcset="kittens.webp" type="image/webp">
+    <source srcset="kittens.jpeg" type="image/jpeg">
+    <img src="kittens.jpg" alt="Two gray kittens">    
+  </picture>
+```
+### Art Direction
+
+* This is when you use an image based on the layout of the page.
+* You can use the picture element to achieve this.
+* For browsers that don't support the picture element, you can use picturefuill.js. Download it [here](http://scottjehl.github.io/picturefill/).
+
+```html
+  <picture>
+    <source
+      media="(min-width: 1000px)"
+      srcset="kitten_large_1x.png 1x, kitten_large_2x.jpg 2x">
+      <source
+        media="(min-width: 500px)"
+        srcset="kitten_small_1x.png 1x, kitten_small_2x.jpg 2x">
+    <img src="kitten_small.png" alt="Cute kitten">
+  </picture>
+```
+
+### Accesibility
+
+* You have to use the attributes responsively so that visually impaired users can see your site.
+* Decorative content should not have the alt attribute, but important content should.
+* You can install [ChromeVox](http://www.chromevox.com/) to experience a site as a visually impaired user.
