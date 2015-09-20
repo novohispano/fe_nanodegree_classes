@@ -1,16 +1,13 @@
-/*
+@import url(http://weloveiconfonts.com/api/?family=zocial);
 
-Your styles go here!
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
 
-Hint! You'll probably want to start by styling:
-  * <body>
-  * <article>
-  * <h1>
-  * <img>
-
-I've left some boilerplate below for you.
-
-*/
+[class*="zocial-"]:nth-last-of-type(-n+4) {
+  margin-left: 10px;
+}
 
 article {
   margin: 0 auto;
@@ -31,4 +28,9 @@ h1 {
 
 img {
   max-width: 100%;
+}
+
+footer {
+  display: flex;
+  width: 100%;
 }

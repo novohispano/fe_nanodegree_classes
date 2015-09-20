@@ -44,3 +44,47 @@
 
 * One of the best tools to process images in batches is ImageMagick, an open source library that you can use in your terminal.
 * You can run a simple server that exposes files with python. Just run `python -m SimpleHTTPServer`
+
+### Performance
+
+* In mobile devices, the number of requests is as significant as the size of the requests.
+* Optical fiber's best is the half of the speed of light. For example, data between London and California takes 100 ms to travel.
+* To improve performance, is to compress images and reduce the number of images.
+
+### Text Problems
+
+* Display text as text on top of images, don't put it in the image.
+* The best way to avoid image problems is to not use images at all and use typography instead.
+* With webfonts and css you can pretty much use any text for graphical effects.
+* There is a processing cost if you use CSS text effects.
+
+### Background Images
+
+* You can set the `bakcground-size` property in a div to have a background image in a picture.
+* With background-size set to `cover`, the image covers all it's width and hides part of its height. It's smallest dimension matches the container's smallest dimension.
+* With `contain`, the largest image dimension matches its container's largest dimensions.
+
+### Symbol characters
+
+* Instead of using pictures, try to see whether you can find a character that matches in a font.
+* Check http://unicode-table.com.
+* Set character set to UTF-8 to make these available.
+* It is recommended that you use the actual unicode character in your code instead of the HTML code, it is easier to mantain.
+* Check `Zocial` for a font that uses icons as characters.
+* For more fonts, check http://weloveiconfonts.com.
+
+```css
+  @import url(http://weloveiconfonts.com/api/?family=zocial);
+
+  [class*="zocial-"]:before {
+    display: inline-block;
+    font-family: 'zocial', sans-serif;
+    text-shadow: 3px 3px 3px #aaa;
+    width: 20vw;
+  }
+```
+
+### Inlining images with SVG
+
+* To reduce the number of file requests, you can embed the images in your html using `svg` or `data-uri`.
+* You can animate SVGs without taking much data.
