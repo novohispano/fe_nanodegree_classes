@@ -33,6 +33,7 @@
 #### string.replace()
 
 * With string replace allows you to replace a part of a string with new content.
+* You can use a regular expression to remove a character. For example: `/<|>/g` will match either `<` or `>` globally.
 
 #### $.append() vs $.prepend()
 
@@ -96,7 +97,20 @@ var bio = {
 #### Bracket Notation
 
 * You can also use brackets to access and set properties in an object.
+* Bracket notation always works. Dot notation requires properties that begin with a letter and do not include special characters.
 
 #### Function syntax
 
 * Functions are objects in JavaScript.
+
+#### JSON
+
+* JavaScript Object Notation. JSON is a popular and simple format for storing and transferring nested or hierarchal data.
+* Use a http://jsonlint.com to validate your JSON.
+
+#### DOM
+
+* Browsers convert all of the HTML they receive into a JavaScript object called the Document Object Model (DOM).
+* `document` is the JS object that represents the DOM.
+* We can fetch an element with raw JS using `.getElementById(id)` or `.getElementByClass(class)`.
+* You can use `.style` to modify the CSS style of a particular element.
