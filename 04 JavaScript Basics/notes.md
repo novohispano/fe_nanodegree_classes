@@ -114,3 +114,71 @@ var bio = {
 * `document` is the JS object that represents the DOM.
 * We can fetch an element with raw JS using `.getElementById(id)` or `.getElementByClass(class)`.
 * You can use `.style` to modify the CSS style of a particular element.
+
+### Flow Control
+
+#### If Statements
+
+* When you use three equal signs, ===, no type conversion is done prior to the comparison. If the values are different types, for example, a String and a Number, they can't ever be equal. To return true, the values must be equal and the types must be the same.
+* Loose equality, ==, checks to see if the two values are the same type and if not, converts to a common type before the conversion. If the types are already the same, there is no difference between the result of === and ==. When they aren't it can cause unexpected results.
+
+#### While Loops
+
+* A `while` loop is a loop that executes itself while a condition is true.
+
+#### For Loops
+
+* A `for` loop is similar to a while loop.
+
+```js
+for (how to start; 'while this is true'; how to increment) {
+  // do something
+}
+```
+
+#### For in Loops
+
+* A `for in` loop has a friendlier syntax.
+
+```js
+for (index in array) {
+  // do something
+}
+```
+
+#### Functions
+
+* Functions in javascript can be initialized in two different ways.
+* Function are objects.
+
+```js
+var myFunc = function () {
+  // do something
+};
+
+function myFunc () {
+  // do something
+}
+```
+
+* Example to capture location of mouse in page:
+
+```js
+$(document).click(function(loc){
+  console.log("pageX: " + loc.pageX + "\n" + "pageY: " + loc.pageY)
+});
+```
+
+#### Return Statements
+
+* The `return` statement is a statement that specifies which value will be returned by the function.
+
+#### Encapsulation
+
+* We can add functions to objects as well. These are called `methods`.
+
+```js
+projects.display = function () {
+  // do something
+}
+```
