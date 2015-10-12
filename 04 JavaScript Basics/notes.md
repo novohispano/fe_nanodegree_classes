@@ -150,6 +150,7 @@ for (index in array) {
 
 * Functions in javascript can be initialized in two different ways.
 * Function are objects.
+* Functions without names are anonymous functions. They can be passed as parameters as well.
 
 ```js
 var myFunc = function () {
@@ -182,3 +183,9 @@ projects.display = function () {
   // do something
 }
 ```
+
+#### Scopes
+
+* Functions create their own scopes.
+* `if/else` statements don't create scopes.
+* If you use `var functionName`, the var definition gets moved to the top of the scope. If you use `function functionname`, the function name and its instructions get defined on the top of the scope.
